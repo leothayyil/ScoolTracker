@@ -21,7 +21,9 @@
         <activity android:name=".ParentActivity" />
         <activity android:name=".TeacherActivity" />
         <activity android:name=".DriverActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".TEACHER.Teach_attendance_Activity" />
+        <activity android:name=".TEACHER.Teach_message_Activity"></activity>
     </application>
 
 </manifest>
