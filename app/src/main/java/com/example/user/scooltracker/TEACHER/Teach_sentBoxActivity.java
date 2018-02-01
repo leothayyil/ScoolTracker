@@ -5,12 +5,13 @@ import android.os.Bundle;
 
 import com.example.user.scooltracker.R;
 
-public class Teach_attendance_Activity extends AppCompatActivity {
+public class Teach_sentBoxActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teach_attendance_);
+        setContentView(R.layout.activity_teach_sent_box);
+
 
     }
 }
