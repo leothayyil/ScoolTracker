@@ -29,4 +29,9 @@ public interface API {
     @POST("/sample/school_app/api/teachers_api.php")
     Call<JsonElement>getDivision(@Field("action")String action,@Field("user_id")int userId);
 
+    @FormUrlEncoded
+    @POST("/sample/school_app/api/teachers_api.php")
+    Call<JsonElement>getAttendance(@Field("action")String action,@Field("user_id")int userId,@Field("class")int classa,
+                                    @Field("division")int division);
+
 }
