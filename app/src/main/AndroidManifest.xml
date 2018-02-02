@@ -22,9 +22,9 @@
         <activity android:name=".TeacherActivity" />
         <activity android:name=".DriverActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".TEACHER.Teach_attendance_Activity" />
-        <activity android:name=".TEACHER.Teach_message_Activity" />
-        <activity android:name=".TEACHER.Teach_sentBoxActivity"></activity>
+        <activity android:name=".Teacher.Teach_attendance_Activity" />
+        <activity android:name=".Teacher.Teach_message_Activity" />
+        <activity android:name=".Teacher.Teach_sentBoxActivity"></activity>
     </application>
 
 </manifest>

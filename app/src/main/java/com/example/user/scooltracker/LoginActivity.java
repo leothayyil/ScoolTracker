@@ -1,6 +1,7 @@
 package com.example.user.scooltracker;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.scooltracker.Retrofit.RetrofitHelper;
+import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
 import com.google.gson.JsonElement;
 
 import org.json.JSONException;
@@ -26,15 +28,23 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     EditText userName,password;
     String user_name,passw,action;
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
+    public  static  String MY_PREFS_NAME="DATA_SHARED";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         forgotPassword=findViewById(R.id.login_forgot);
         loginBtn=findViewById(R.id.login_btn);
         userName=findViewById(R.id.login_userName);
         password=findViewById(R.id.login_password);
+
+        prefs= (SharedPreferences) getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        editor=(SharedPreferences.Editor)getSharedPreferences(MY_PREFS_NAME,MODE_PRIVATE).edit();
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +91,13 @@ public class LoginActivity extends AppCompatActivity {
                             String divi=jsonObject.getString("division");
 
                             if (status.equals("Success")){
-                                Intent intent=new Intent(LoginActivity.this,ProfileActivity.class);
+                                editor.putString("name",name);
+                                editor.putString("user_id",user_id);
+                                editor.putString("class",classa);
+                                editor.putString("division",divi);
+                                editor.apply();
+
+                                Intent intent=new Intent(LoginActivity.this,Teach_attendance_Activity.class);
                                 startActivity(intent);
                             }
                             else {
