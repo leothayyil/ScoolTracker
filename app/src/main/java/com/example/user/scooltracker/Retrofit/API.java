@@ -31,6 +31,18 @@ public interface API {
 
     @FormUrlEncoded
     @POST("/sample/school_app/api/teachers_api.php")
+    Call<JsonElement>getStudeList(@Field("action")String action, @Field("user_id")String user_id, @Field("class")String classa,
+                                  @Field("division")String division);
+
+    @FormUrlEncoded
+    @POST("/sample/school_app/api/teachers_api.php")
     Call<JsonElement>getAttendance(@Field("action")String action,@Field("user_id")String userId,@Field("class")String classa,
                                     @Field("division")String division);
+
+
+    @FormUrlEncoded
+    @POST("/sample/school_app/api/teachers_api.php")
+    Call<JsonElement>sentMessage(@Field("action")String action,@Field("user_id")String userId,@Field("message_type")String msgType,
+                                 @Field("title")String msgTitle,@Field("message")String msgMsg,@Field("student")String student,
+                                 @Field("class")String classa,@Field("division")String division);
 }

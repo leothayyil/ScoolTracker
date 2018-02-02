@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.user.scooltracker.Retrofit.RetrofitHelper;
 import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
+import com.example.user.scooltracker.Teacher.Teach_message_Activity;
 import com.google.gson.JsonElement;
 
 import org.json.JSONException;
@@ -97,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("division",divi);
                                 editor.apply();
 
-                                Intent intent=new Intent(LoginActivity.this,Teach_attendance_Activity.class);
+                                Intent intent=new Intent(LoginActivity.this,Teach_message_Activity.class);
                                 startActivity(intent);
                             }
                             else {

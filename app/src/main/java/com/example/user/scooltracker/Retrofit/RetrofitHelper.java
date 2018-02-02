@@ -3,6 +3,7 @@ package com.example.user.scooltracker.Retrofit;
 import com.example.user.scooltracker.LoginActivity;
 import com.example.user.scooltracker.ProfileActivity;
 import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
+import com.example.user.scooltracker.Teacher.Teach_message_Activity;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,6 +24,10 @@ public class RetrofitHelper {
     }
 
     public RetrofitHelper(Teach_attendance_Activity teach_attendance_activity) {
+        initRestAdapter();
+    }
+
+    public RetrofitHelper(Teach_message_Activity teach_message_activity) {
         initRestAdapter();
     }
 
