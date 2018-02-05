@@ -128,10 +128,7 @@ public class Teach_message_Activity extends AppCompatActivity {
 //                                    pojo.setId(id);
 //                                    pojo.setName(name);
                                     arrayStudentsList.add(name);
-
                                     String[] arr = arrayStudentsList.toArray(new String[arrayStudentsList.size()]);
-
-
                                     ArrayAdapter<String> adapter=new ArrayAdapter<String>(Teach_message_Activity.this,
                                             android.R.layout.simple_spinner_item,arr);
                                     studentsSpin.setAdapter(adapter);
@@ -140,7 +137,6 @@ public class Teach_message_Activity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-
                         @Override
                         public void onFailure(Call<JsonElement> call, Throwable t) {
 

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.scooltracker.Retrofit.RetrofitHelper;
+import com.example.user.scooltracker.Teacher.Teach_MsgDetails_Activity;
 import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
 import com.example.user.scooltracker.Teacher.Teach_message_Activity;
 import com.google.gson.JsonElement;
@@ -90,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                             String name=jsonObject.getString("name");
                             String classa=jsonObject.getString("class");
                             String divi=jsonObject.getString("division");
+                            Log.e("TAG", "onResponse del: "+divi );
 
                             if (status.equals("Success")){
                                 editor.putString("name",name);

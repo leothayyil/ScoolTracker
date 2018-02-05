@@ -45,4 +45,7 @@ public interface API {
     Call<JsonElement>sentMessage(@Field("action")String action,@Field("user_id")String userId,@Field("message_type")String msgType,
                                  @Field("title")String msgTitle,@Field("message")String msgMsg,@Field("student")String student,
                                  @Field("class")String classa,@Field("division")String division);
+    @FormUrlEncoded
+    @POST("/sample/school_app/api/teachers_api.php")
+    Call<JsonElement>replyDetails(@Field("action")String action,@Field("user_id")String userId,@Field("message_id")String msgId);
 }
