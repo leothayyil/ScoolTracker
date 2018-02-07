@@ -5,6 +5,7 @@ import com.example.user.scooltracker.ProfileActivity;
 import com.example.user.scooltracker.Teacher.Teach_MsgDetails_Activity;
 import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
 import com.example.user.scooltracker.Teacher.Teach_message_Activity;
+import com.example.user.scooltracker.Teacher.Teach_sentBoxActivity;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -33,6 +34,10 @@ public class RetrofitHelper {
     }
 
     public RetrofitHelper(Teach_MsgDetails_Activity teach_msgDetails_activity) {
+        initRestAdapter();
+    }
+
+    public RetrofitHelper(Teach_sentBoxActivity teach_sentBoxActivity) {
         initRestAdapter();
     }
 

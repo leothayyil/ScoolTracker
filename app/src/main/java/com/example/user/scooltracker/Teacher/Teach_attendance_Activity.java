@@ -42,7 +42,6 @@ public class Teach_attendance_Activity extends AppCompatActivity {
     TextView tv_classa,tv_name,tv_divi;
     TeacherAttendanceAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,90 +67,7 @@ public class Teach_attendance_Activity extends AppCompatActivity {
             GetAttendance attendance=new GetAttendance(actionAttendance,userIdd,classa,divi);
             attendance.execute();
         }
-
-
-
-
     }
-/*
-    private class  GetDivision extends AsyncTask{
-
-        @Override
-        protected Object doInBackground(Object[] objects) {
-            new RetrofitHelper(Teach_attendance_Activity.this).getApi().getDivision(actionDivision,classa)
-                    .enqueue(new Callback<JsonElement>() {
-                        @Override
-                        public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                            try {
-                                JSONObject jsonObject=new JSONObject(response.body().toString());
-                                String status=jsonObject.getString("status");
-
-                                JSONArray jsonArray=jsonObject.getJSONArray("division");
-                                for (int i=0;i<jsonArray.length(); i++){
-                                    JSONObject jsonObject1=jsonArray.getJSONObject(i);
-
-                                    int id=jsonObject1.getInt("id");
-                                    int classa=jsonObject1.getInt("class");
-                                    int division=jsonObject1.getInt("division");
-
-
-                                }
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<JsonElement> call, Throwable t) {
-
-                        }
-                    });
-            return null;
-        }
-    }
-    */
-    /*
-    private class GetClass extends AsyncTask{
-
-        @Override
-        protected Object doInBackground(Object[] objects) {
-
-            new RetrofitHelper(Teach_attendance_Activity.this).getApi().getClass(actionClass).enqueue(new Callback<JsonElement>() {
-                @Override
-                public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                    try {
-                        JSONObject jsonObject=new JSONObject(response.body().toString());
-                        String status = jsonObject.getString("status");
-                        JSONArray jsonArray = jsonObject.getJSONArray("class_name");
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            int id = jsonObject1.getInt("id");
-                            String classa = jsonObject1.getString("class");
-
-                            Class_Pojo pojo=new Class_Pojo();
-                            pojo.setId(id);
-                            pojo.setClassa(classa);
-                            class_arrayList.add(pojo);
-
-                            Toast.makeText(Teach_attendance_Activity.this, classa, Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<JsonElement> call, Throwable t) {
-
-                }
-            });
-
-            return null;
-        }
-    }
-    */
     private  class  GetAttendance extends AsyncTask{
 
         String action,userId,classa,div;
@@ -188,9 +104,7 @@ public class Teach_attendance_Activity extends AppCompatActivity {
                             pojo.setId(id);
                             pojo.setName(name);
                             students_arrayList.add(pojo);
-
                         }
-
                         adapter=new TeacherAttendanceAdapter(Teach_attendance_Activity.this,students_arrayList);
                         recycAttendance.setAdapter(adapter);
 
@@ -198,7 +112,6 @@ public class Teach_attendance_Activity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-
                 @Override
                 public void onFailure(Call<JsonElement> call, Throwable t) {
 

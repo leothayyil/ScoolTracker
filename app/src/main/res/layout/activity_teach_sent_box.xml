@@ -5,9 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.scooltracker.Teacher.Teach_sentBoxActivity">
-<android.support.v7.widget.RecyclerView
+
+    android:background="@color/white"
+    tools:context="com.example.user.scooltracker.Teacher.Teach_sentBoxActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SENT BOX"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_margin="5sp"
+        android:background="@color/black"/>
+<ExpandableListView
+    android:id="@+id/TSB_expandable"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-</android.support.v7.widget.RecyclerView>
+</ExpandableListView>
 </LinearLayout>

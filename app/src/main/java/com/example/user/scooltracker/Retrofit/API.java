@@ -31,6 +31,10 @@ public interface API {
 
     @FormUrlEncoded
     @POST("/sample/school_app/api/teachers_api.php")
+    Call<JsonElement>getSentBox(@Field("action")String action,@Field("user_id")String userId);
+
+    @FormUrlEncoded
+    @POST("/sample/school_app/api/teachers_api.php")
     Call<JsonElement>getStudeList(@Field("action")String action, @Field("user_id")String user_id, @Field("class")String classa,
                                   @Field("division")String division);
 

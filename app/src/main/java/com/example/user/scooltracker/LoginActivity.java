@@ -15,6 +15,7 @@ import com.example.user.scooltracker.Retrofit.RetrofitHelper;
 import com.example.user.scooltracker.Teacher.Teach_MsgDetails_Activity;
 import com.example.user.scooltracker.Teacher.Teach_attendance_Activity;
 import com.example.user.scooltracker.Teacher.Teach_message_Activity;
+import com.example.user.scooltracker.Teacher.Teach_sentBoxActivity;
 import com.google.gson.JsonElement;
 
 import org.json.JSONException;
@@ -59,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
                  action="login";
 
                 if (userName.getText().toString().isEmpty()){
@@ -72,9 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                     passw=password.getText().toString();
                     login();
                 }
-
-
-
             }
         });
     }
@@ -100,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("division",divi);
                                 editor.apply();
 
-                                Intent intent=new Intent(LoginActivity.this,Teach_message_Activity.class);
+                                Intent intent=new Intent(LoginActivity.this,Teach_sentBoxActivity.class);
                                 startActivity(intent);
                             }
                             else {
