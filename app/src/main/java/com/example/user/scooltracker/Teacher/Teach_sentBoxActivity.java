@@ -1,12 +1,12 @@
 package com.example.user.scooltracker.Teacher;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.user.scooltracker.Adapters.TSB_adapter;
@@ -30,8 +30,9 @@ public class Teach_sentBoxActivity extends AppCompatActivity {
 
     ExpandableListView expandable;
     TSB_adapter listAdapter;
-
+    ProgressDialog dialog;
     List<String> listDataHeader= new ArrayList<String>();
+    List<String> listDataSubHeader= new ArrayList<String>();
     List<String> listDataMsg= new ArrayList<String>();
     HashMap<String, List<String>> listDataChild = new HashMap<String, List<String>>();
 
@@ -40,11 +41,19 @@ public class Teach_sentBoxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teach_sent_box);
         expandable=findViewById(R.id.TSB_expandable);
-
+        dialog=new ProgressDialog(this);
+        dialog.setTitle("Loading Messages...");
+        dialog.show();
 
         LoadSentBox sentBox=new LoadSentBox();
         sentBox.execute();
 
+        expandable.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+
+            }
+        });
 
     }
     private  class  LoadSentBox extends AsyncTask{
@@ -67,15 +76,16 @@ public class Teach_sentBoxActivity extends AppCompatActivity {
                                     String title=jsonObject1.getString("title");
                                     String to=jsonObject1.getString("to");
                                     String message=jsonObject1.getString("message");
-
+                                    String date=jsonObject1.getString("date");
                                     listDataHeader.add(title);
                                     listDataMsg.add(message);
+                                    listDataSubHeader.add(to+"  "+date);
 
-                                    listDataChild.put(String.valueOf(listDataHeader),listDataMsg);
+                                    listDataChild.put(listDataHeader.get(i),listDataMsg);
 
-                                    Log.e("loggg", "onResponse: "+listDataChild.toString() );
-
-                                    listAdapter = new TSB_adapter(Teach_sentBoxActivity.this, listDataHeader, listDataChild);
+                                    dialog.dismiss();
+                                    listAdapter = new TSB_adapter(Teach_sentBoxActivity.this, listDataHeader,
+                                            listDataChild,listDataSubHeader);
                                     expandable.setAdapter(listAdapter);
                                 }
                             } catch (JSONException e) {

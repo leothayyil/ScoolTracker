@@ -15,16 +15,18 @@
         android:layout_height="wrap_content"
         android:text="SENT BOX"
         android:gravity="center"
+        android:layout_marginTop="10sp"
         android:textColor="@color/black"
         android:textSize="20sp"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_margin="5sp"
+        android:layout_marginTop="10sp"
         android:background="@color/black"/>
 <ExpandableListView
     android:id="@+id/TSB_expandable"
     android:layout_width="match_parent"
+    android:groupIndicator="@null"
     android:layout_height="wrap_content">
 </ExpandableListView>
 </LinearLayout>

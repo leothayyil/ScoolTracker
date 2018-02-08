@@ -1,5 +1,6 @@
 package com.example.user.scooltracker.Teacher;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.scooltracker.Pojo.Students_list_Pojo;
@@ -30,7 +32,7 @@ import retrofit2.Response;
 public class Teach_message_Activity extends AppCompatActivity {
 
     Spinner msgTypeSpin,studentsSpin;
-    String [] msgType={"Message For Students","General Message"};
+    String [] msgType={"General Message","Message For Students"};
     ArrayList<String>arrayStudentsList=new ArrayList<>();
     Button submitBtn;
     EditText edtTitle,edtMsg;
@@ -60,7 +62,6 @@ public class Teach_message_Activity extends AppCompatActivity {
                 }else if (edtMsg.getText().toString().isEmpty()){
                     Toast.makeText(Teach_message_Activity.this, "Message Field Is Blank!", Toast.LENGTH_SHORT).show();
                 }else {
-
                     SendMeassage sent=new SendMeassage();
                     sent.execute();
                 }
@@ -70,6 +71,7 @@ public class Teach_message_Activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                 int ii=position+1;
                 student= String.valueOf(ii);
 
@@ -85,11 +87,15 @@ public class Teach_message_Activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position==1){
+
+
+                if (position==0){
                     message_type="general";
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                     studentsSpin.setVisibility(View.INVISIBLE);
-                }else if (position==0){
+                }else if (position==1){
                     message_type="single";
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
                     studentsSpin.setVisibility(View.VISIBLE);
                     arrayStudentsList.clear();
                     StudentsList students=new StudentsList();

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.user.scooltracker.R;
@@ -25,7 +26,7 @@ public class TSB_adapter extends BaseExpandableListAdapter {
     private HashMap<String, List<String>> _listDataChild;
 
     public TSB_adapter(Teach_sentBoxActivity teach_sentBoxActivity, List<String> listDataHeader,
-                       HashMap<String, List<String>> listDataChild) {
+                       HashMap<String, List<String>> listDataChild, List<String> listDataSubHeader) {
         this._context=teach_sentBoxActivity;
         this._listDataHeader=listDataHeader;
         this._listDataChild=listDataChild;
@@ -77,6 +78,8 @@ public class TSB_adapter extends BaseExpandableListAdapter {
         }
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.list_title);
+        ImageView  expandnColl=convertView.findViewById(R.id.expandCollapse);
+
         lblListHeader.setTypeface(null, Typeface.BOLD);
         lblListHeader.setText(headerTitle);
 

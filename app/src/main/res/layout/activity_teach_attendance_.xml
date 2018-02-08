@@ -65,7 +65,8 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white_grey"
+            android:id="@+id/TA_card_studentsList"
+            app:cardBackgroundColor="@color/white"
             android:layout_margin="10sp"
             app:cardElevation="10sp">
             <LinearLayout
@@ -77,9 +78,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="* Mark Absents"
+
                 android:layout_marginTop="5sp"
                 android:layout_marginRight="5sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_gravity="right"/>
 
             <android.support.v7.widget.RecyclerView

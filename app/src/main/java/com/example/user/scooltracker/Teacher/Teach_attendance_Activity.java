@@ -1,12 +1,15 @@
 package com.example.user.scooltracker.Teacher;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +44,8 @@ public class Teach_attendance_Activity extends AppCompatActivity {
     Button submit;
     TextView tv_classa,tv_name,tv_divi;
     TeacherAttendanceAdapter adapter;
+    CardView studentsList;
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +56,14 @@ public class Teach_attendance_Activity extends AppCompatActivity {
         submit=findViewById(R.id.TA_btn_submit);
         tv_name=findViewById(R.id.TA_tv_name);
         tv_divi=findViewById(R.id.TA_tv_div);
-
+        studentsList=findViewById(R.id.TA_card_studentsList);
+        dialog=new ProgressDialog(this);
+        studentsList.setVisibility(View.GONE);
+        dialog.setTitle("Getting students");
+        dialog.show();
         recycAttendance.setHasFixedSize(true);
         recycAttendance.setLayoutManager(new LinearLayoutManager(this));
+
 
         preferences=getSharedPreferences(MY_PREFS_NAME,MODE_PRIVATE);
         String restoredTexts=preferences.getString("name","0");
@@ -104,12 +114,15 @@ public class Teach_attendance_Activity extends AppCompatActivity {
                             pojo.setId(id);
                             pojo.setName(name);
                             students_arrayList.add(pojo);
+                            studentsList.setVisibility(View.VISIBLE);
+                            dialog.dismiss();
                         }
                         adapter=new TeacherAttendanceAdapter(Teach_attendance_Activity.this,students_arrayList);
                         recycAttendance.setAdapter(adapter);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        dialog.dismiss();
                     }
                 }
                 @Override

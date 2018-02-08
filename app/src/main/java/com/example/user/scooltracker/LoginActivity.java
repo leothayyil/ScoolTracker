@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("division",divi);
                                 editor.apply();
 
-                                Intent intent=new Intent(LoginActivity.this,Teach_sentBoxActivity.class);
+                                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                                 startActivity(intent);
                             }
                             else {
