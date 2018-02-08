@@ -76,7 +76,6 @@ public class Teach_message_Activity extends AppCompatActivity {
                 student= String.valueOf(ii);
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
