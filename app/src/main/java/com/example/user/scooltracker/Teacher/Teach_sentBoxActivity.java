@@ -77,7 +77,7 @@ public class Teach_sentBoxActivity extends AppCompatActivity {
                                     String to=jsonObject1.getString("to");
                                     String message=jsonObject1.getString("message");
                                     String date=jsonObject1.getString("date");
-                                    listDataHeader.add(title);
+                                    listDataHeader.add(title+"("+date+")");
                                     listDataMsg.add(message);
                                     listDataSubHeader.add(to+"  "+date);
 

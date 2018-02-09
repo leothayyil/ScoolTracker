@@ -44,7 +44,7 @@
                     />
                 <Spinner
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40sp"
                     android:layout_marginLeft="20sp"
                     android:id="@+id/TM_spin_type"
                     android:spinnerMode="dropdown"
@@ -57,7 +57,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:background="@drawable/rectangle"
-            android:layout_height="wrap_content"
+            android:layout_height="40sp"
                 android:id="@+id/TM_spin_stude"
                 android:spinnerMode="dropdown"
                 android:popupBackground="@color/grey"

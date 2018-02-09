@@ -51,6 +51,7 @@ public class Teach_message_Activity extends AppCompatActivity {
         edtTitle=findViewById(R.id.TM_edt_title);
         edtMsg=findViewById(R.id.TM_edt_msg);
 
+
         ArrayAdapter <String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,msgType);
         msgTypeSpin.setAdapter(adapter);
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +115,7 @@ public class Teach_message_Activity extends AppCompatActivity {
         String userId="1";
         String classa="7";
         String div="7";
+
         @Override
         protected Object doInBackground(Object[] objects) {
 
